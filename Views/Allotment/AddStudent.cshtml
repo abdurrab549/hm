@@ -1,0 +1,148 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddStudent</title>
+    <link href="~/myData/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/myData/js/bootstrap.js"></script>
+    <script src="~/myData/js/jquery-1.11.3.js"></script>
+    <!--Validations-->
+    <script src="~/myData/js/jquery.validate.min.js"></script>
+    <script>        
+        // When the browser is ready
+        $(function () {         
+            // Setup form validation on the #Login element
+            $('#signup').validate({
+                errorClass: "my-error-class",
+                // Specify the validation rules
+                rules: {                    
+                    dept_id: "required",
+                    room_id:"required",
+                    date_Admission:"required",
+                    rollNo: "required",
+                    degree_Program: "required",
+                    allotment_date: "required",
+                    leaving_date:"required",
+                    session:"required",
+                    time_slot:"required",
+                    password: {
+                        required: true,
+                        minlength: 3                        
+                    },
+                    remarks: "required",
+                    Is_Present:"required",
+                    agree: "required"
+                },
+                // Specify the validation error messages
+                messages: {
+                    dept_id: "Please select department id",
+                    room_id:"Please select a room id",
+                    date_Admission:  "Please select date" ,
+                    rollNo: "Please enter Roll Number",
+                    degree_Program: "Please enter your degree",
+                    allotment_date: "please select allotment date",
+                    leaving_date:"Please selcet leaving date of student",
+                    session:"Please enter the session e.g 2012-2016",
+                    time_slot:"Please select the time slot",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 3 characters long"
+                    },
+                    remarks: "Please enter your remarks",
+                    Is_Present:"Please select the student status",
+                    agree: "Please accept our policy"
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+    <style>
+        .my-error-class {
+            color: red;
+            margin-left:150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <nav class="navbar navbar-default"></nav>  
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <h3 style="color: #5cb85c;font-family: cursive;margin-left: 10px;">Add Student</h3>
+        @{ if (ViewBag.error == null)
+                                                          {
+                                                              <h5 style="color:darkblue">@ViewBag.success</h5>
+                                                          }
+                                                          else if(ViewBag.success==null)
+                                                          { 
+                                                              <h5 style="color:red">@ViewStateEncryptionMode.Auto</h5>
+                                                          }                                                          
+                                                          }
+        <form id="signup" class="form-horizontal" action="/Allotment/AddStudentToDB" method="post" style="min-height: 400px;background-color: ghostwhite;font-size: medium">
+            <fieldset>
+                <legend></legend>
+                <div class="col-md-5">
+                    <label style="margin-left: 75px;">Dept Id:</label><select id="dept_id" class="selectpicker" style="margin-left: 20px; border-color: #cabfbf; border-width: 2px; min-height: 35px; min-width: 200px; " name="dept_id">
+    <option></option>
+    <option>01</option>
+    <option>02</option>
+    <option>03</option>
+    <option>04</option>
+    <option>05</option>
+    <option>06</option>
+    <option>07</option>
+    <option>08</option>
+</select><br /><br />
+                   <!-- <label hidden style="margin-left: 35px;">Personal Id:</label><input hidden style="margin-left: 20px;border-color: ghostwhite; height: 35px;" type="text" name="personal_id" placeholder="Enter personal info id" />-->
+                    <label style="margin-left: 67px;">Room Id:</label><select id="room_id" style="margin-left: 20px; border-color: #cabfbf; border-width: 2px; min-height: 35px; min-width: 200px; " name="room_id">
+    <option></option>
+    <option>01</option>
+    <option>02</option>
+    <option>03</option>
+    <option>04</option>
+    <option>05</option>
+    <option>06</option>
+    <option>07</option>
+</select><br /><br />               
+                    <label style="margin-left: 10px;">Admission date:</label><input id="date_Admission" style="margin-left: 20px; border-color: ghostwhite; height: 35px; min-width: 200px; " type="date" name="date_Admission" /><br><br>
+                    <label style="margin-left: 70px;">Roll No:</label><input id="rollNo" style="margin-left: 20px; border-color: whitesmoke; height: 35px;" type="text" name="rollNo" placeholder="Enter student roll number" /><br><br>
+                    <label style="margin-left: 68px;">Degree :</label><input id="degree_Program" style="margin-left: 20px;border-color: ghostwhite; height: 35px;" type="text" name="degree_Program" placeholder="Enter student degree" /><br><br>
+                    <label style="margin-left: 15px;">Allotment date:</label><input id="allotment_date" style="margin-left: 20px; border-color: ghostwhite; height: 35px; min-width: 200px;" type="date" name="allotment_date" placeholder="Enter allotment date " /><br><br>
+                    <label style="margin-left: 30px;">Leaving Date:</label><input id="leaving_date" style="margin-left: 17px; border-color: ghostwhite; height: 35px; min-width: 200px;" type="date" name="leaving_date" placeholder="Enter Leaving date" /><br><br>
+                </div>
+                <div class="col-md-5">
+                    <label style="margin-left: 50px;">Session :</label><input id="session" style="margin-left: 35px;border-color: ghostwhite; height: 35px;" type="text" name="session" placeholder="Enter session of student" /><br><br>
+                    <label style="margin-left: 50px;">Time Slot:</label><select id="time_slot" style="margin-left: 30px; border-color: #cabfbf; border-width: 2px; height: 35px;" name="time_slot">
+    <option></option>
+    <option>Morning</option>
+    <option>After Noon</option>
+    <option>Evening</option>
+</select><br><br>
+                    <label style="margin-left: 50px;">Password:</label><input id="password" style="margin-left: 28px;border-color: ghostwhite; height: 35px;" type="text" name="password" placeholder="Enter password" /><br><br>
+                    <label style="margin-left: 50px;">Remarks :</label><textarea id="remarks" style="margin-left: 28px; border-color: #cabfbf; border-width: 2px; line-height: 40px; min-width: 200px;" name="remarks" placeholder="Enter your remarks "></textarea><br><br>
+                    <label style="margin-left: 50px;">Is Present :</label><select id="Is_Present" style="margin-left: 20px;border-color: #cabfbf;border-width:2px; height: 35px;min-width:200px;" name="Is_Present">
+    <option></option>
+    <option>Yes</option>
+    <option>No</option>
+</select><br><br>
+                    <button type="submit" class="btn-primary" style="margin-left: 50px;margin-top: 30px; width: 100px;">Submit</button>
+                    <button type="reset" class="btn-danger" style="margin-left: 10px;margin-top: 30px; width: 100px;">Reset</button>
+                    <a href="/Allotment/Index">
+                        <input type="button" class="btn-info" style="margin-left: 10px;margin-top: 30px; width: 100px;" name="back" value="Back" />
+                    </a>
+                  
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    <div class="col-md-1"></div>
+</body>
+</html>

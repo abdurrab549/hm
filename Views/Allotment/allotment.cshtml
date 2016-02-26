@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>welcome</title>
+    <link href="~/myData/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/myData/js/bootstrap.js"></script>
+    <script src="~/myData/js/jquery-1.11.3.js"></script>
+    <script src="~/myData/js/jssor.js"></script>
+    <script src="~/myData/js/jssor.slider.js"></script>
+</head>
+<body>
+    <div class="row navbar-collapse" style="font-size:medium;">        
+        <nav class="navbar navbar-default">  
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#"><span class="glyphicon glyphicon-align-center"></span>Home</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Requests<span class="badge">4</span></a></li>           
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages<span class="badge">4</span></a></li>
+            </ul>          
+            <div class="nav navbar-collapse" >
+                <div style="height: 170px;">
+                    <div style="padding: 20px; margin-left: 60px;">
+                        <img class="img-circle" src="~/myData/images/th.jpg" width="70" height="70" style="border: 2px solid #0026ff;" />
+                        <!-- Jssor Slider Begin -->
+                        <!-- To move inline styles to css file/block, please specify a class name for each element. -->
+                        <div id="slider1_container" style="position: relative; top: 0px; left: 200px; width: 980px; height: 70px; overflow: hidden; ">
+
+                            <!-- Loading Screen -->
+                            <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+                                <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
+                                </div>
+                                <div style="position: absolute; display: block; background: url(~/myData/images/slider/logo/loading.gif) no-repeat center center; top: 0px; left: 0px; width: 100%; height: 100%;">
+                                </div>
+                            </div>
+
+                            <!-- Slides Container -->
+                            <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 980px; height: 70px; overflow: hidden;">
+                                <div><img u="image" alt="amazon" src="~/myData/images/slider/logo/amazon.jpg" /></div>
+                                <div><img u="image" alt="android" src="~/myData/images/slider/logo/android.jpg" /></div>
+                                <div><img u="image" alt="bitly" src="~/myData/images/slider/logo/bitly.jpg" /></div>
+                                <div><img u="image" alt="blogger" src="~/myData/images/slider/logo/blogger.jpg" /></div>
+                                <div><img u="image" alt="dnn" src="~/myData/images/slider/logo/dnn.jpg" /></div>
+                                <div><img u="image" alt="drupal" src="~/myData/images/slider/logo/drupal.jpg" /></div>
+                                <div><img u="image" alt="ebay" src="~/myData/images/slider/logo/ebay.jpg" /></div>
+                                <div><img u="image" alt="facebook" src="~/myData/images/slider/logo/facebook.jpg" /></div>
+                                <div><img u="image" alt="google" src="~/myData/images/slider/logo/google.jpg" /></div>
+                                <div><img u="image" alt="ibm" src="~/myData/images/slider/logo/ibm.jpg" /></div>
+                                <div><img u="image" alt="ios" src="~/myData/images/slider/logo/ios.jpg" /></div>
+                                <div><img u="image" alt="joomla" src="~/myData/images/slider/logo/joomla.jpg" /></div>
+                                <div><img u="image" alt="linkedin" src="~/myData/images/slider/logo/linkedin.jpg" /></div>
+                                <div><img u="image" alt="mac" src="~/myData/images/slider/logo/mac.jpg" /></div>
+                                <div><img u="image" alt="magento" src="~/myData/images/slider/logo/magento.jpg" /></div>
+                                <div><img u="image" alt="pinterest" src="~/myData/images/slider/logo/pinterest.jpg" /></div>
+                                <div><img u="image" alt="samsung" src="~/myData/images/slider/logo/samsung.jpg" /></div>
+                                <div><img u="image" alt="twitter" src="~/myData/images/slider/logo/twitter.jpg" /></div>
+                                <div><img u="image" alt="windows" src="~/myData/images/slider/logo/windows.jpg" /></div>
+                                <div><img u="image" alt="wordpress" src="~/myData/images/slider/logo/wordpress.jpg" /></div>
+                                <div><img u="image" alt="youtube" src="~/myData/images/slider/logo/youtube.jpg" /></div>
+                            </div>                           
+                        </div>
+                        <!-- Jssor Slider End -->
+
+                    </div>
+
+                </div>               
+            </div>
+        </nav>        
+    </div>
+    <div class="row">
+        <div class="col-md-3" style="margin-left: 10px; background-color:ghostwhite;min-height: 400px">           
+            <div class="form-control" style="min-height: inherit">
+                <h3 style="color: #5cb85c;font-family: cursive;text-align:center">Dashboard<br />...................</h3>
+                <a href="/Allotment/AddStudent"><input type="button" class="btn-primary form-control" value="Add Student" style="margin-top:30px;" /></a>
+                <a href="/Allotment/AllStudents"><input type="button" class="btn-primary form-control" value="View Allotments" /></a>
+                <a href="/Allotment/AllStudents"><input type="button" class="btn-primary form-control" value="Change Allotment" /></a>               
+                <input type="button" class="btn-primary form-control" value="View Reports" />
+                <input type="button" class="btn-primary form-control" style="margin-bottom:10px;" value="View Space"/>
+                <a href="/Home/Logout"><input type="button" class="btn-primary form-control" value="Logout" /></a> 
+</div>
+        </div>
+        <div class="col-md-5" style="text-align:center">
+            <div>
+                <h3 style="color: #5cb85c;font-family: cursive;"> Welcome to Hostel Management</h3>
+            </div>                        
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</body>
+</html>
+<script>
+    jQuery(document).ready(function ($) {
+        var options = {
+            $AutoPlay: true,                                    
+            $AutoPlaySteps: 1,                                  
+            $AutoPlayInterval: 0,                           
+            $PauseOnHover: 4,                               
+
+            $ArrowKeyNavigation: true,   			            
+            $SlideEasing: $JssorEasing$.$EaseLinear,          
+            $SlideDuration: 1600,                                
+            $MinDragOffsetToSlide: 20,                         
+            $SlideWidth: 140,                                   
+            //$SlideHeight: 100,                                
+            $SlideSpacing: 0, 					                
+            $DisplayPieces: 7,                                  
+            $ParkingPosition: 0,                              
+            $UISearchMode: 1,                                   
+            $PlayOrientation: 1,                                
+            $DragOrientation: 1                                
+        };
+
+        var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+        //responsive code begin
+        //you can remove responsive code if you don't want the slider scales while window resizes
+        function ScaleSlider() {
+            var bodyWidth = document.body.clientWidth;
+            if (bodyWidth)
+                jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 980));
+            else
+                window.setTimeout(ScaleSlider, 30);
+        }
+        ScaleSlider();
+
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        //responsive code end
+    });
+</script>

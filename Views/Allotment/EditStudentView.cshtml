@@ -1,0 +1,165 @@
+﻿@{
+    Layout = null;
+}
+@model HostelManagementSystem.Models.Student
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditStudentView</title>
+    <script src="~/myData/js/bootstrap.js"></script>
+    <link href="~/myData/css/bootstrap.css" rel="stylesheet" />
+    <style>
+        table {
+            background-color: ghostwhite;
+            font-size:large;
+        }
+
+        table, td {
+            border: 1px solid green;
+            border-collapse: collapse;
+            text-align: center;
+        }       
+       #settings {
+            margin-left: 1%;
+        }
+        td
+        {
+            text-decoration-color:green;
+        }         
+    </style>
+</head>
+<body>
+    <div class="row">
+        <nav class="navbar navbar-default"></nav>
+    </div>
+    <div class="col-md-3"></div>    
+    <div id="settings" class="col-md-6">
+        <h1 style="color: #5cb85c;font-family: cursive;">Update Student</h1>       
+            <div>
+                @using (Html.BeginForm("UpdateStudent", "Allotment", "Post"))
+                {              
+                          @Html.ValidationSummary(true)
+                        <table>
+                            @Html.HiddenFor(m => m.Id)
+                            <tr>
+                                <td align="right">
+                                    Department :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.dept_id)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Room :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.room_id)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Addmission :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.date_Admission)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Roll No :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.rollNo)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Degree :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.degree_Program)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Allotment :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.allotment_date)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Leaving :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.leaving_date)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Seession :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.session)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Time :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.time_slot)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Password :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.password)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Remarks :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.remarks)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    Presence :
+                                </td>
+                                <td align="left">
+                                    @Html.EditorFor(m => m.Is_Present)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="Save" />
+                                    <a href="/Allotment/AllStudents/">Back</a>
+                                    @{
+                    if (ViewBag.success == null && ViewBag.error != null)
+                    {
+                        <div style="color: Red">@ViewBag.error</div>
+                    }
+                    else if (ViewBag.success != null && ViewBag.error == null)
+                    {
+                        <div style="color: blue">@ViewBag.success</div>
+                    }
+                                    }
+
+                                </td>
+                            </tr>
+                        </table>                                                          
+                }        
+            </div> 
+        </div>   
+    <div class="col-md-3"></div>
+</body>
+</html>

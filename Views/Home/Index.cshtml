@@ -1,0 +1,77 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link href="~/myData/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/myData/js/bootstrap.js"></script>    
+    <script src="~/myData/js/jquery-1.11.3.js"></script>
+    <script src="~/myData/js/jquery.validate.min.js"></script>
+    <!-- jQuery Form Validation code -->
+    <script>
+        // When the browser is ready
+        $(function () {
+            // Setup form validation on the #Login element
+            $('#LoginForm').validate({
+                errorClass: "my-error-class",
+                // Specify the validation rules
+                rules: {
+                    uname: "required",                  
+                    password: {
+                        required: true,
+                        minlength: 3
+                    },
+                    agree: "required"
+                },
+                // Specify the validation error messages
+                messages: {
+                    uname: "Please enter user name",                 
+                    password: {
+                        required: "Please enter password",
+                        minlength: "Your password must be at least 3 characters long"
+                    },
+                    agree: "Please accept our policy"
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                }
+            });            
+        });        
+    </script>
+    <style>
+        .my-error-class {
+            color: red;
+            margin-left: 150px;
+        }        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default"></nav>
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h3 style="color: #5cb85c;font-family: cursive;margin-left: 10px;"> Welcome to Hostel Management</h3>
+        <form id="LoginForm" novalidate="novalidate" class="form-horizontal" action="/Home/ValidateUsersLogin" method="post">
+            <fieldset>
+                <legend></legend>
+
+                <h2 style="margin-left: 150px;">Sign In</h2>
+                
+                <div style="min-height: 400px;background-color: ghostwhite;margin-top: 20px;font-size: medium">
+                    <p style="color:red">@ViewBag.error</p><br />
+                    <div><label style="margin-left: 50px;">User Name:</label><input class="controls" style="margin-top: 70px;margin-left: 20px;border-color: ghostwhite; height: 35px;" type="text" name="uname" placeholder="Enter your name" id="uname" /></div><br><br>
+                    <div>
+                        <label style="margin-left: 50px;">Password :</label><input class="controls" style="margin-left: 20px;border-color: ghostwhite; height: 35px;" type="password" name="password" placeholder="Enter your password " id="password" />
+                    </div><br><br>
+                    <button type="submit" class="btn-primary" style="margin-left: 50px;margin-top: 30px; width: 150px;" name="submit" value="submit">Login</button>
+                    <button type="reset" class="btn-danger" style="margin-left: 10px;margin-top: 30px; width: 150px;">Reset</button>                    
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</body>
+</html>

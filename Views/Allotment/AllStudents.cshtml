@@ -1,0 +1,144 @@
+﻿@model IEnumerable<HostelManagementSystem.Models.Student>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/myData/js/bootstrap.js"></script>
+    <title>All Student</title>
+    <script src="~/myData/js/bootstrap.js"></script>
+    <link href="~/myData/css/bootstrap.css" rel="stylesheet" />
+    <style>        
+        table {
+            background-color:ghostwhite;            
+            width:99%;           
+        }
+        table, td, th {
+            border: 1px solid green;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            border: 1px solid black;
+            color: green;            
+        }
+        .settings {
+            margin-left:1%;
+        }            
+    </style>
+</head>
+<body>
+    <div class="row">
+        <nav class="navbar navbar-default" style="text-align:center">
+            @{               
+            if (ViewBag.success==null &&ViewBag.error!=null)
+            {
+             <div style="color: Red">@ViewBag.error</div>
+            }
+            else if (ViewBag.success != null && ViewBag.error == null)
+            {
+                 <div style="color: blue">@ViewBag.success</div>
+            }
+            }
+            <p style="text-align:center"></p>
+        </nav>
+    </div>
+    <div class="settings">
+        <h1 style="color: #5cb85c;font-family: cursive;"> All Student <a href="/Allotment/Index"><input type="button" value="Back"/></a></h1>
+        <div>
+            <table>
+                <tr style="font-size:medium;">
+                    <th>
+                        Deparmtment
+                    </th>
+                    <th>
+                        Room
+                    </th>
+                    <th>
+                        Addmission
+                    </th>
+                    <th>
+                        Roll No
+                    </th>
+                    <th>
+                        Degree
+                    </th>
+                    <th>
+                        Allotment
+                    </th>
+                    <th>
+                        Leaving
+                    </th>
+                    <th>
+                        Session
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                    <th>
+                        Password
+                    </th>
+                    <th>
+                        Remarks
+                    </th>
+                    <th>
+                        Presence
+                    </th>
+                    <th>
+                        -------
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dept_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.room_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date_Admission)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rollNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.degree_Program)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.allotment_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.leaving_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.session)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.time_slot)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.remarks)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Is_Present)
+                        </td>
+                        <td style="font-size:medium;">
+                            @Html.ActionLink("Edit", "EditStudentView", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "DeleteStudent", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>     
+</body>
+</html>
